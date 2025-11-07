@@ -1,6 +1,8 @@
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
+using Entities.Models;
 
-namespace StoreApp.Models
+
+namespace Repositories
 {
     public class RepositoryContext : DbContext
     {
@@ -10,7 +12,7 @@ namespace StoreApp.Models
         {
 
         }
-        
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -23,6 +25,6 @@ namespace StoreApp.Models
                 new Product() { ProductId = 5, ProductName = "Deck", Price = 1_500 }
             );
         }
-        
+
     }
 }

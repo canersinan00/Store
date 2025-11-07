@@ -1,0 +1,16 @@
+C:\.Net\Store\Repositories\bin\Debug\net8.0\Repositories.deps.json
+C:\.Net\Store\Repositories\bin\Debug\net8.0\Repositories.dll
+C:\.Net\Store\Repositories\bin\Debug\net8.0\Repositories.pdb
+C:\.Net\Store\Repositories\bin\Debug\net8.0\Entities.dll
+C:\.Net\Store\Repositories\bin\Debug\net8.0\Entities.pdb
+C:\.Net\Store\Repositories\obj\Debug\net8.0\Repositories.csproj.AssemblyReference.cache
+C:\.Net\Store\Repositories\obj\Debug\net8.0\Repositories.GeneratedMSBuildEditorConfig.editorconfig
+C:\.Net\Store\Repositories\obj\Debug\net8.0\Repositories.AssemblyInfoInputs.cache
+C:\.Net\Store\Repositories\obj\Debug\net8.0\Repositories.AssemblyInfo.cs
+C:\.Net\Store\Repositories\obj\Debug\net8.0\Repositories.csproj.CoreCompileInputs.cache
+C:\.Net\Store\Repositories\obj\Debug\net8.0\Repositories.sourcelink.json
+C:\.Net\Store\Repositories\obj\Debug\net8.0\Reposito.787EC4B2.Up2Date
+C:\.Net\Store\Repositories\obj\Debug\net8.0\Repositories.dll
+C:\.Net\Store\Repositories\obj\Debug\net8.0\refint\Repositories.dll
+C:\.Net\Store\Repositories\obj\Debug\net8.0\Repositories.pdb
+C:\.Net\Store\Repositories\obj\Debug\net8.0\ref\Repositories.dll
