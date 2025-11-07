@@ -1,8 +1,12 @@
-Microsoft Visual Studio Solution File, Format Version 12.00
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.5.2.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StoreApp", "StoreApp.csproj", "{BB6EF475-DEC4-732A-40B4-41CEDE66C443}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "..\Entities\Entities.csproj", "{DE07A272-AE3E-403E-8CE3-5733978064C3}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Repositories", "..\Repositories\Repositories.csproj", "{C6EFB7B5-CD4A-4882-83EB-614A1E5BF2D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,6 +18,14 @@ Global
 		{BB6EF475-DEC4-732A-40B4-41CEDE66C443}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BB6EF475-DEC4-732A-40B4-41CEDE66C443}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BB6EF475-DEC4-732A-40B4-41CEDE66C443}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DE07A272-AE3E-403E-8CE3-5733978064C3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DE07A272-AE3E-403E-8CE3-5733978064C3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DE07A272-AE3E-403E-8CE3-5733978064C3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DE07A272-AE3E-403E-8CE3-5733978064C3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C6EFB7B5-CD4A-4882-83EB-614A1E5BF2D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6EFB7B5-CD4A-4882-83EB-614A1E5BF2D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6EFB7B5-CD4A-4882-83EB-614A1E5BF2D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6EFB7B5-CD4A-4882-83EB-614A1E5BF2D5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
