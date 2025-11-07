@@ -4,7 +4,7 @@ using Services.Contracts;
 
 namespace Services
 {
-    public class CategoryManager : ICategoryServices
+    public class CategoryManager : ICategoryService
     {
         private readonly IRepositoryManager _manager;
 

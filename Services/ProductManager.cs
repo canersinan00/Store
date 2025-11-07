@@ -4,7 +4,7 @@ using Services.Contracts;
 
 namespace Services
 {
-    public class ProductManager : IProductServices
+    public class ProductManager : IProductService
     {
         private readonly IRepositoryManager _maneger;
 
