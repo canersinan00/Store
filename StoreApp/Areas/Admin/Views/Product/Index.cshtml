@@ -23,10 +23,21 @@
                 @foreach(Product prd in Model)
                 {
                     <tr>
-                        <th>@prd.ProductId</th>
-                        <th>@prd.ProductName</th>
-                        <th>@prd.Price</th>
-                        <th>.</th>
+                        <td>@prd.ProductId</td>
+                        <td>@prd.ProductName</td>
+                        <td>@prd.Price.ToString("c")</td>
+                        <td>
+                            <div class="btn-group">
+                                <a asp-action="Update" asp-route-id="@prd.ProductId" class="btn btn-warning">
+                                    <i class="fa fa-edit"></i>
+                                    Edit
+                                </a>
+                                <a asp-action="Get" asp-controller="Product" asp-area="" target="_blank" asp-route-id="@prd.ProductId" class="btn btn-info">
+                                    <i class="fa fa-search"></i>
+                                    Web
+                                </a>
+                            </div>
+                        </td>
                     </tr>
                 }
             </tbody>
