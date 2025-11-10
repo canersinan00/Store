@@ -19,6 +19,16 @@ namespace Services
             _maneger.Save();
         }
 
+        public void DeleteOneProduct(int id)
+        {
+            Product product = GetOneProduct(id, false);
+            if (product is not null)
+            {
+                _maneger.Product.DeleteOneProduct(product);
+                _maneger.Save();
+            }
+        }
+
         public IEnumerable<Product> GetAllProducts(bool trackChanges)
         {
             return _maneger.Product.GetAllProducts(trackChanges);

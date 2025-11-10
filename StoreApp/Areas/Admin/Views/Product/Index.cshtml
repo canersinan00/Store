@@ -32,6 +32,10 @@
                                     <i class="fa fa-edit"></i>
                                     Edit
                                 </a>
+                                <a asp-action="Delete" asp-route-id="@prd.ProductId" class="btn btn-danger">
+                                    <i class="fa fa-trash"></i>
+                                    Delete
+                                </a>
                                 <a asp-action="Get" asp-controller="Product" asp-area="" target="_blank" asp-route-id="@prd.ProductId" class="btn btn-info">
                                     <i class="fa fa-search"></i>
                                     Web
