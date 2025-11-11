@@ -1,6 +1,7 @@
 using Entities.Dtos;
 using Entities.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Services.Contracts;
 
@@ -28,6 +29,26 @@ namespace StoreApp.Areas.Admin.Controllers
             return View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Create([FromForm] ProductDtoForInsertion productDto, IFormFile file)
+        {
+            if (ModelState.IsValid)
+            {
+                //file operation
+                string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", file.FileName);
+                
+                using (var stream = new FileStream(path,FileMode.Create))
+                {
+                    await file.CopyToAsync(stream);
+                }
+                productDto.ImageUrl = String.Concat("/images/", file.FileName);
+                _manager.ProductService.CreateProduct(productDto);
+                return RedirectToAction("Index");
+            }
+            return View();
+        }
+
         private SelectList GetCategoriesSelectList()
         {
             return new SelectList(
@@ -37,18 +58,6 @@ namespace StoreApp.Areas.Admin.Controllers
                 "CategoryName",
                 "1"
                 );
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public IActionResult Create([FromForm] ProductDtoForInsertion productDto)
-        {
-            if (ModelState.IsValid)
-            {
-                _manager.ProductService.CreateProduct(productDto);
-                return RedirectToAction("Index");
-            }
-            return View();
         }
 
         public IActionResult Update([FromRoute(Name = "id")] int id)

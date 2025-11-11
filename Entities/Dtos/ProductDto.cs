@@ -7,9 +7,10 @@ namespace Entities.Dtos
     public int ProductId { get; init; }
     [Required(ErrorMessage = "Product name is rquired.")]
     public String? ProductName { get; init; } = String.Empty;
-    [Required(ErrorMessage = "Product price is rquired.")]
+        [Required(ErrorMessage = "Product price is rquired.")]
+     public String? Summary { get; init; } = String.Empty;
+    public String? ImageUrl { get; set; }
     public decimal Price { get; init; }
-    
     public int? CategoryId { get; init; }
     }
 }
