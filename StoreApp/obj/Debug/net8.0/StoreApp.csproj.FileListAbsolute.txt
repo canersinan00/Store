@@ -137,3 +137,5 @@ C:\.Net\Store\StoreApp\bin\Debug\net8.0\Repositories.dll
 C:\.Net\Store\StoreApp\bin\Debug\net8.0\Repositories.pdb
 C:\.Net\Store\StoreApp\bin\Debug\net8.0\Services.dll
 C:\.Net\Store\StoreApp\bin\Debug\net8.0\Services.pdb
+C:\.Net\Store\StoreApp\bin\Debug\net8.0\AutoMapper.dll
+C:\.Net\Store\StoreApp\bin\Debug\net8.0\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
