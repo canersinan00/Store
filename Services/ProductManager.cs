@@ -41,13 +41,7 @@ namespace Services
 
         public Product? GetOneProduct(int id, bool trackChanges)
         {
-            var product = _maneger.Product.GetOneProduct(id, trackChanges);
-
-            if (product is null)
-            {
-                throw new Exception("Prodcut not found!");
-            }
-            return product;
+            return _maneger.Product.GetOneProduct(id, trackChanges);
         }
 
         public ProductDtoForUpdate GetOneProductForUpdate(int id, bool trackChanges)
