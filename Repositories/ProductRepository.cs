@@ -23,7 +23,8 @@ namespace Repositories
         {
             return _context
                 .Products
-                .FilterByCategoryId(p.CategoryId);
+                .FilterByCategoryId(p.CategoryId)
+                .FilteredBySearchTerm(p.SearchTerm);
         }
 
         public Product? GetOneProduct(int id, bool trackChanges)
