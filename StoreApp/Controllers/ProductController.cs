@@ -1,3 +1,4 @@
+using Entities.RequestPatameters;
 using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
 
@@ -13,9 +14,9 @@ namespace StoreApp.Controllers
             _manager = manager;
         }
 
-        public IActionResult Index()
+        public IActionResult Index(ProductRequestPatameters p)
         {
-            var model = _manager.ProductService.GetAllProducts(false);
+            var model = _manager.ProductService.GetAllProductsWithDetails(p);
             return View(model);
         }
 

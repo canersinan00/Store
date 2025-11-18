@@ -1,10 +1,12 @@
 using Entities.Models;
+using Entities.RequestPatameters;
 
 namespace Repositories.Contracts
 {
     public interface IProductRepository : IRepositoryBase<Product>
     {
         IQueryable<Product> GetAllProducts(bool trackChanges);
+        IQueryable<Product> GetAllProductsWithDetails(ProductRequestPatameters p);
         IQueryable<Product> GetShowcaseProducts(bool trackChanges);
         Product? GetOneProduct(int id, bool trackChanges);
 
