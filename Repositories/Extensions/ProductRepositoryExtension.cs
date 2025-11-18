@@ -17,8 +17,19 @@ namespace Repositories.Extensions
             if (string.IsNullOrWhiteSpace(searchTerm))
                 return products;
 
-           else
+            else
                 return products.Where(prd => prd.ProductName.ToLower().Contains(searchTerm.ToLower()));
+        }
+        public static IQueryable<Product> FilterByPrice(this IQueryable<Product> products, int minPrice, int maxPrice, bool isValidPrice)
+        {
+            if (isValidPrice)
+            {
+                return products.Where(prd => prd.Price >= minPrice && prd.Price <= maxPrice);
+            }
+            else
+            {
+                return products;
+            }
         }
     }
 }

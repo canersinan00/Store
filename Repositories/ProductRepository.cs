@@ -24,7 +24,8 @@ namespace Repositories
             return _context
                 .Products
                 .FilterByCategoryId(p.CategoryId)
-                .FilteredBySearchTerm(p.SearchTerm);
+                .FilteredBySearchTerm(p.SearchTerm)
+                .FilterByPrice(p.MinPrice, p.MaxPrice, p.IsValidPrice);
         }
 
         public Product? GetOneProduct(int id, bool trackChanges)
