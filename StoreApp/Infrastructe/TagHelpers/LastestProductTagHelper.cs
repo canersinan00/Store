@@ -5,10 +5,12 @@ using Services.Contracts;
 
 namespace StoreApp.Infrastructe.TagHelpers
 {
-    [HtmlTargetElement("div",Attributes ="products")]
+    [HtmlTargetElement("div", Attributes = "products")]
     public class LastestProductTagHelper : TagHelper
     {
         private readonly IServiceManager _meneger;
+        [HtmlAttributeName("number")]
+        public int Number { get; set; }
 
         public LastestProductTagHelper(IServiceManager meneger)
         {
@@ -24,15 +26,15 @@ namespace StoreApp.Infrastructe.TagHelpers
 
             TagBuilder icon = new TagBuilder("i");
             icon.Attributes.Add("class", "fa fa-box text-secondary");
-            
-            
+
+
             h6.InnerHtml.AppendHtml(icon);
             h6.InnerHtml.AppendHtml(" Latest Products");
 
             TagBuilder ul = new TagBuilder("ul");
-            var products = _meneger.ProductService.GetLastestProducts(5, false);
+            var products = _meneger.ProductService.GetLastestProducts(Number, false);
 
-            foreach(Product product in products)
+            foreach (Product product in products)
             {
                 TagBuilder li = new TagBuilder("li");
                 TagBuilder a = new TagBuilder("a");
@@ -48,5 +50,6 @@ namespace StoreApp.Infrastructe.TagHelpers
             output.Content.AppendHtml(div);
         }
     }     
-    
+ 
+
 }
