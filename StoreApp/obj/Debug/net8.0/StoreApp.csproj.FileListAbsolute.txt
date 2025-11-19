@@ -139,3 +139,4 @@ C:\.Net\Store\StoreApp\obj\Debug\net8.0\refint\StoreApp.dll
 C:\.Net\Store\StoreApp\obj\Debug\net8.0\StoreApp.pdb
 C:\.Net\Store\StoreApp\obj\Debug\net8.0\StoreApp.genruntimeconfig.cache
 C:\.Net\Store\StoreApp\obj\Debug\net8.0\ref\StoreApp.dll
+C:\.Net\Store\StoreApp\bin\Debug\net8.0\Microsoft.AspNetCore.Identity.EntityFrameworkCore.dll
