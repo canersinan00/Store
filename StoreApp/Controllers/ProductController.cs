@@ -1,6 +1,7 @@
 using Entities.RequestPatameters;
 using Microsoft.AspNetCore.Mvc;
 using Services.Contracts;
+using StoreApp.Models;
 
 namespace StoreApp.Controllers
 {
@@ -16,8 +17,18 @@ namespace StoreApp.Controllers
 
         public IActionResult Index(ProductRequestPatameters p)
         {
-            var model = _manager.ProductService.GetAllProductsWithDetails(p);
-            return View(model);
+            var products = _manager.ProductService.GetAllProductsWithDetails(p);
+            var pagination = new Pagination()
+            {
+                CurrentPage = p.PageNumber,
+                ItemsPerPage = p.PageSize,
+                TotalItems = _manager.ProductService.GetAllProducts(false).Count()
+            };
+            return View(new ProductListViewModel()
+            {
+                Products = products,
+                Pagination = pagination
+            });
         }
 
         public IActionResult Get([FromRoute(Name = "id")] int id)
