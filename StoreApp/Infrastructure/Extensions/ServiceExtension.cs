@@ -61,6 +61,7 @@ namespace StoreApp.Infrastructure.Extensions
             services.AddScoped<IProductService, ProductManager>();
             services.AddScoped<ICategoryService, CategoryManager>();
             services.AddScoped<IOrderServices, OrderManager>();
+            services.AddScoped<IAuthService, AuthManager>();
         }
 
         public static void ConfigureRouting(this IServiceCollection services)
