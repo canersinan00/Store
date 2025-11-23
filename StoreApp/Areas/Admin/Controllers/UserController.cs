@@ -36,11 +36,17 @@ namespace StoreApp.Areas.Admin.Controllers
         public async Task<IActionResult> Create([FromForm] UserDtoForCreation userDto)
         {
             var result = await _meneger.AuthService.CreateUser(userDto);
-            return result.Succeeded 
-                ? RedirectToAction("Index") 
-                : View(userDto);        
+            return result.Succeeded
+                ? RedirectToAction("Index")
+                : View(userDto);
 
         }
+        
+        public async Task<IActionResult> Update([FromRoute(Name ="id")]string id)
+        {
+            var user = await 
+        }
+        
 
     }
 }
