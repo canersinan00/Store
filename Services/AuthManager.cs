@@ -36,7 +36,7 @@ namespace Services
                 {
                     throw new Exception("Assigning roles failed");
                 }
-            }   
+            }
             return result;
         }
 
@@ -72,11 +72,17 @@ namespace Services
             if (user is not null)
             {
                 var result = await _userManager.UpdateAsync(user);
-                if (userDto.Roles.Count > 0)
+                if (userDto.UserRoles.Count > 0)
                 {
                     var userRoles = await _userManager.GetRolesAsync(user);
-                    var r1 = _userManager.RemoveFromRolesAsync(user, userRoles);
-                    var r2 = _userManager.AddToRolesAsync(user, userDto.UserRoles);
+
+                    var removeResult = await _userManager.RemoveFromRolesAsync(user, userRoles);
+                    if (!removeResult.Succeeded)
+                        throw new Exception("Removing roles failed");
+
+                    var addResult = await _userManager.AddToRolesAsync(user, userDto.UserRoles);
+                    if (!addResult.Succeeded)
+                        throw new Exception("Assigning roles failed");
                 }
                 return;
             }
