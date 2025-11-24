@@ -28,15 +28,26 @@
         </li>
         <li class="nav-item">
           <a class="nav-link text-dark" aria-current="page" asp-controller="Role" asp-action="Index">Role</a>
-        </li><li class="nav-item">
+        </li>
+        <li class="nav-item">
           <a class="nav-link text-dark" aria-current="page" asp-controller="User" asp-action="Index">Users</a>
         </li>
       </ul>
 
       <ul class="navbar-nav">
-        <a target="_blank" class="nav-link text-dark" aria-current="page" asp-controller="Home" asp-area="" asp-action="Index">Web</a>
+        <a target="_blank" class="nav-link text-dark" aria-current="page" asp-controller="Home" asp-area=""
+          asp-action="Index">
+          <i class="fa-solid fa-web-awesome"></i>
+          Web
+        </a>
       </ul>
-
+      <ul class="navbar-nav">
+        <a class="nav-link text-dark" aria-current="page" asp-controller="Account" asp-area=""
+          asp-action="Logout">
+          <i class="fa-solid fa-arrow-right-from-bracket"></i>
+          Logout
+        </a>
+      </ul>
     </div>
   </div>
 </nav>
