@@ -1,15 +1,17 @@
 using Entities.Dtos;
 using Entities.Models;
+using Entities.RequestPatameters;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding.Binders;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Services.Contracts;
+using StoreApp.Models;
 
 namespace StoreApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles ="Admin")]
+    [Authorize(Roles = "Admin")]
 
     public class ProductController : Controller
     {
@@ -20,10 +22,20 @@ namespace StoreApp.Areas.Admin.Controllers
             _manager = manager;
         }
 
-        public IActionResult Index()
+        public IActionResult Index([FromQuery]ProductRequestParameters p)
         {
-            var model = _manager.ProductService.GetAllProducts(false);
-            return View(model);
+            var products = _manager.ProductService.GetAllProductsWithDetails(p);
+            var pagination = new Pagination()
+            {
+                CurrentPage = p.PageNumber,
+                ItemsPerPage = p.PageSize,
+                TotalItems = _manager.ProductService.GetAllProducts(false).Count()
+            };
+            return View(new ProductListViewModel()
+            {
+                Products = products,
+                Pagination = pagination
+            });
         }
 
         public IActionResult Create()
@@ -40,8 +52,8 @@ namespace StoreApp.Areas.Admin.Controllers
             {
                 //file operation
                 string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", file.FileName);
-                
-                using (var stream = new FileStream(path,FileMode.Create))
+
+                using (var stream = new FileStream(path, FileMode.Create))
                 {
                     await file.CopyToAsync(stream);
                 }
@@ -72,14 +84,14 @@ namespace StoreApp.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Update([FromForm]ProductDtoForUpdate productDto,IFormFile file)
+        public async Task<IActionResult> Update([FromForm] ProductDtoForUpdate productDto, IFormFile file)
         {
             if (ModelState.IsValid)
             {
                 //file operation
                 string path = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "images", file.FileName);
-                
-                using (var stream = new FileStream(path,FileMode.Create))
+
+                using (var stream = new FileStream(path, FileMode.Create))
                 {
                     await file.CopyToAsync(stream);
                 }

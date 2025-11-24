@@ -19,7 +19,7 @@ namespace Repositories
 
         public IQueryable<Product> GetAllProducts(bool trackChanges) => FindAll(trackChanges);
 
-        public IQueryable<Product> GetAllProductsWithDetails(ProductRequestPatameters p)
+        public IQueryable<Product> GetAllProductsWithDetails(ProductRequestParameters p)
         {
             return _context
                 .Products

@@ -8,7 +8,7 @@ namespace Services.Contracts
     {
         IEnumerable<Product> GetAllProducts(bool trackChanges);
         IEnumerable<Product> GetLastestProducts(int n, bool trackChanges);
-        IEnumerable<Product> GetAllProductsWithDetails(ProductRequestPatameters p);
+        IEnumerable<Product> GetAllProductsWithDetails(ProductRequestParameters p);
         IEnumerable<Product> GetShowcaseProducts(bool trackChanges);
 
         Product? GetOneProduct(int id, bool trackChanges);

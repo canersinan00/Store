@@ -1,6 +1,6 @@
 namespace Entities.RequestPatameters
 {
-    public class ProductRequestPatameters : RequestParameters
+    public class ProductRequestParameters : RequestParameters
     {
         public int? CategoryId { get; set; }
         public int MinPrice { get; set; } = 0;
@@ -9,12 +9,12 @@ namespace Entities.RequestPatameters
         public int PageNumber { get; set; }
         public int PageSize { get; set; }
 
-        public ProductRequestPatameters() : this(1,6)
+        public ProductRequestParameters() : this(1, 6)
         {
-            
+
         }
 
-        public ProductRequestPatameters(int pageNumber = 1, int pageSize = 6)
+        public ProductRequestParameters(int pageNumber = 1, int pageSize = 6)
         {
             PageNumber = pageNumber;
             PageSize = pageSize;

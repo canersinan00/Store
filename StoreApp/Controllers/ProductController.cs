@@ -15,7 +15,7 @@ namespace StoreApp.Controllers
             _manager = manager;
         }
 
-        public IActionResult Index(ProductRequestPatameters p)
+        public IActionResult Index(ProductRequestParameters p)
         {
             var products = _manager.ProductService.GetAllProductsWithDetails(p);
             var pagination = new Pagination()

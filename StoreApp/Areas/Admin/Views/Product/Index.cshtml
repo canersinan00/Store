@@ -1,27 +1,36 @@
-@model IEnumerable<Product>
+@model ProductListViewModel
 
-    <div class="text-center">
-        <div class="display-6">Products</div>
+<div class="text-center">
+    <div class="display-6">Products</div>
 
-        <div class="d-flex justify-content-end md-3">
-            <a class="btn btn-outline-success" asp-action="Create">
-                <i class="fa fa-plus"></i>
-                Create
-            </a>
-        </div>
+    <div class="d-flex justify-content-end md-3">
+        <a class="btn btn-outline-success" asp-action="Create">
+            <i class="fa fa-plus"></i>
+            Create
+        </a>
+    </div>
+</div>
 
+<div class="row">
+    <div class="col-md-3">
+        @await Component.InvokeAsync("CategoriesMenu")
+        @await Component.InvokeAsync("ProductFilterMenu")
+        <div products="" number="3"></div>
+    </div>
+    <div class="col-md-9">
         <table class="table table-striped table-hover">
             <thead>
                 <tr>
                     <th>Id</th>
                     <th>Image Url</th>
                     <th>Product Name</th>
+                    <th>Showcase</th>
                     <th>Price</th>
                     <th>Operations</th>
                 </tr>
             </thead>
             <tbody>
-                @foreach(Product prd in Model)
+                @foreach(Product prd in Model.Products)
                 {
                 <tr>
                     <td>@prd.ProductId</td>
@@ -30,6 +39,11 @@
                             width="50">
                     </td>
                     <td>@prd.ProductName</td>
+                    <td>
+                        <div class="form-check form-switch">
+                            <input type="checkbox" class="form-check-input" checked="@prd.ShowCase" disabled>
+                        </div>
+                    </td>
                     <td>@prd.Price.ToString("c")</td>
                     <td>
                         <div class="btn-group">
@@ -52,13 +66,19 @@
                 }
             </tbody>
         </table>
+        <div class="text-center">
+            <div class="btn-group" page-class-enabled="true" page-class="btn" page-class-normal="btn-outline-dark"
+                page-class-selected="btn-secondary" page-model="@Model?.Pagination" page-action="Index"></div>
+        </div>
     </div>
+</div>
 
-    @section Scripts
-    {
-    <script type="text/javascript">
-        $(document).ready(() => {
-            $('[data-toggle="tooltip"]').tooltip()
-        })
-    </script>
-    }
+
+@section Scripts
+{
+<script type="text/javascript">
+    $(document).ready(() => {
+        $('[data-toggle="tooltip"]').tooltip()
+    })
+</script>
+}

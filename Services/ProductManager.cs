@@ -40,7 +40,7 @@ namespace Services
             return _maneger.Product.GetAllProducts(trackChanges);
         }
 
-        public IEnumerable<Product> GetAllProductsWithDetails(ProductRequestPatameters p)
+        public IEnumerable<Product> GetAllProductsWithDetails(ProductRequestParameters p)
         {
             return _maneger.Product.GetAllProductsWithDetails(p);
         }
