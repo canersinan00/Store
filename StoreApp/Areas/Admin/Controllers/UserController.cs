@@ -80,5 +80,19 @@ namespace StoreApp.Areas.Admin.Controllers
                 : View();
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> DeleteOneUser([FromForm]UserDto userDto)
+        {
+            var result = await _meneger
+                .AuthService
+                .DeletOneUser(userDto.UserName);
+
+            return result.Succeeded
+                ? RedirectToAction("Index")
+                : View();
+
+        }
+
     }
 }
