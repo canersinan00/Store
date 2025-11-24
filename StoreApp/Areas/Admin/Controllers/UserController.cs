@@ -6,7 +6,7 @@ using Services.Contracts;
 namespace StoreApp.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles ="Admin")]
+    [Authorize(Roles = "Admin")]
 
     public class UserController : Controller
     {
@@ -18,7 +18,7 @@ namespace StoreApp.Areas.Admin.Controllers
         }
         public IActionResult Index()
         {
-            var users = _meneger.AuthService.GetAllUSers();
+            var users = _meneger.AuthService.GetAllUsers();
             return View(users);
         }
         public IActionResult Create()
@@ -44,8 +44,8 @@ namespace StoreApp.Areas.Admin.Controllers
                 : View(userDto);
 
         }
-        
-        public async Task<IActionResult> Update([FromRoute(Name ="id")]string id)
+
+        public async Task<IActionResult> Update([FromRoute(Name = "id")] string id)
         {
             var user = await _meneger.AuthService.GetOneUserForUpdate(id);
             return View(user);
@@ -85,7 +85,7 @@ namespace StoreApp.Areas.Admin.Controllers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteOneUser([FromForm]UserDto userDto)
+        public async Task<IActionResult> DeleteOneUser([FromForm] UserDto userDto)
         {
             var result = await _meneger
                 .AuthService
