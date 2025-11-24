@@ -2,6 +2,8 @@ using StoreApp.Infrastructure.Extensions;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddControllers();
+
 builder.Services.AddControllersWithViews();
 builder.Services.AddRazorPages();
 
@@ -33,9 +35,12 @@ app.UseEndpoints(endpoints =>
         areaName: "Admin",
         pattern: "Admin/{controller=Dashboard}/{action=Index}/{id?}"
     );
+
     endpoints.MapControllerRoute("default", "{controller=Home}/{action=Index}/{id?}");
 
     endpoints.MapRazorPages();
+
+    endpoints.MapControllers();
 });
 
 app.ConfigureAndCheckMigration();
