@@ -24,6 +24,8 @@ namespace StoreApp.Areas.Admin.Controllers
 
         public IActionResult Index([FromQuery]ProductRequestParameters p)
         {
+            ViewData["Title"] = "Products";
+
             var products = _manager.ProductService.GetAllProductsWithDetails(p);
             var pagination = new Pagination()
             {
@@ -80,6 +82,8 @@ namespace StoreApp.Areas.Admin.Controllers
         {
             ViewBag.Categories = GetCategoriesSelectList();
             var model = _manager.ProductService.GetOneProductForUpdate(id, false);
+
+            ViewData["Title"] = model?.ProductName;
             return View(model);
         }
 
